@@ -77,14 +77,14 @@ class Stopwatch extends React.Component {
     }
 
     addResult() {
-        let element = document.createElement('li');
+        const element = document.createElement('li');
         element.innerHTML = `${this.pad0(this.state.times.minutes)}:${this.pad0(this.state.times.seconds)}:${this.pad0(Math.floor(this.state.times.miliseconds))}`;
         document.querySelector('.results').appendChild(element);
     }
 
     clearResults() {
         const list = document.querySelector('.results').querySelectorAll('li');
-        var listArr = Array.from(list);
+        const listArr = Array.from(list);
 
         listArr.forEach(function (el) {
             document.querySelector('.results').removeChild(el);
@@ -102,19 +102,7 @@ class Stopwatch extends React.Component {
     
     render() {
         
-        return React.createElement('div', {className: 'container'},
-                    React.createElement('nav', {className: 'controls'},
-                        React.createElement('a', {href: '#', className: 'button', id: 'start', onClick: () => this.start()}, 'Start'),
-                        React.createElement('a', {href: '#', className: 'button', id: 'stop', onClick: () => this.stop()}, 'Stop'), 
-                        React.createElement('a', {href: '#', className: 'button', id: 'reset', onClick: () => this.reset()}, 'Reset'), 
-                        ), 
-                    React.createElement('div', {className: 'stopwatch'}, this.format()),
-                    React.createElement('div', {className: 'btnsh'}, 
-                        React.createElement('a', {href: '#', className: 'button2', id: 'res', onClick: () => this.addResult()}, 'Result'),                
-                        React.createElement('a', {href: '#', className: 'button2', id: 'clear', onClick: () => this.clearResults()}, 'Clear Results')),
-                     React.createElement('ul', {className: 'results'}, ))
-        
-            /*
+        return 
             <div className={'container'}>
                 <nav className={'controls'}>
                     <a href={'#'} className={'button'} id={'start'} onClick={() => this.start()}>Start</a>
@@ -127,19 +115,10 @@ class Stopwatch extends React.Component {
                     <a href={'#'} className={'button2'} id={'clear'}>Clear Results</a>
                 </div>
                 <ul className={'results'}></ul>
-            </div>
-            */    
-        
+            </div>    
     }
 }
 
-var element = React.createElement(Stopwatch);
+const element = React.createElement(Stopwatch);
 ReactDOM.render(element, document.getElementById('app'));
     
-
-
-
-
-
-
-
